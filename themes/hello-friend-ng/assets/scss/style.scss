@@ -6,16 +6,11 @@ $primary-text: #212121;
 $secondary-text: #757575;
 $accent: #67a2c9;
 
-
 .hero-table { 
   margin-left: 10%;
   margin-right: 10%;
 }
   
-
- 
-
-
 section {
   padding: 100px 0;
 }
@@ -59,6 +54,17 @@ section {
 				top: 30px;
 				left: -15px;
 				border-width: 10px 15px 10px 0;
+			}
+		}
+
+		.timeline-content-dark {
+			&::after {
+				border-color: transparent #252627 transparent transparent;
+			}
+		}
+
+		.timeline-content-light {
+			&::after {
 				border-color: transparent #f5f5f5 transparent transparent;
 			}
 		}
@@ -71,13 +77,11 @@ section {
 	}
 }
 
-
-.timeline-content-dark {
+.timeline-content {
 	position: relative;
 	width: 45%;
 	padding: 10px 30px;
 	border-radius: 4px;
-	background: #272727;
 	box-shadow: 0 20px 25px -15px rgba(32, 129, 72, 0.3);
 
 	&::after {
@@ -89,27 +93,21 @@ section {
 		top: 30px;
 		right: -15px;
 		border-width: 10px 0 10px 15px;
+	}
+}
+
+.timeline-content-dark {
+	background: #272727;
+
+	&::after {
 		border-color: transparent transparent transparent #252627;
 	}
 }
 
 .timeline-content-light {
-	position: relative;
-	width: 45%;
-	padding: 10px 30px;
-	border-radius: 4px;
 	background: #f5f5f5;
-	box-shadow: 0 20px 25px -15px rgba(32, 129, 72, 0.3);
 
 	&::after {
-		content: '';
-		position: absolute;
-		border-style: solid;
-		width: 0;
-		height: 0;
-		top: 30px;
-		right: -15px;
-		border-width: 10px 0 10px 15px;
 		border-color: transparent transparent transparent #f5f5f5;
 	}
 }
@@ -218,6 +216,17 @@ blockquote {
 						top: 30px;
 						left: -15px;
 						border-width: 10px 15px 10px 0;
+					}
+				}
+
+				.timeline-content-dark {
+					&::after {
+						border-color: transparent #252627 transparent transparent;
+					}
+				}
+		
+				.timeline-content-light {
+					&::after {
 						border-color: transparent #f5f5f5 transparent transparent;
 					}
 				}
