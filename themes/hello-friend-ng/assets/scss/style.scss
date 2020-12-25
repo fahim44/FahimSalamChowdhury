@@ -44,36 +44,7 @@ section {
 				right: auto;
 				left: 0;
 			}
-
-			&::after {
-				content: '';
-				position: absolute;
-				border-style: solid;
-				width: 0;
-				height: 0;
-				top: 30px;
-				left: -15px;
-				border-width: 10px 15px 10px 0;
-			}
 		}
-
-		.timeline-content-dark {
-			&::after {
-				border-color: transparent #252627 transparent transparent;
-			}
-		}
-
-		.timeline-content-light {
-			&::after {
-				border-color: transparent #f5f5f5 transparent transparent;
-			}
-		}
-	}
-
-	&::after {
-		content: '';
-		display: block;
-		clear: both;
 	}
 }
 
@@ -83,33 +54,14 @@ section {
 	padding: 10px 30px;
 	border-radius: 4px;
 	box-shadow: 0 20px 25px -15px rgba(32, 129, 72, 0.3);
-
-	&::after {
-		content: '';
-		position: absolute;
-		border-style: solid;
-		width: 0;
-		height: 0;
-		top: 30px;
-		right: -15px;
-		border-width: 10px 0 10px 15px;
-	}
 }
 
-.timeline-content-dark {
+.content-dark {
 	background: #272727;
-
-	&::after {
-		border-color: transparent transparent transparent #252627;
-	}
 }
 
-.timeline-content-light {
+.content-light {
 	background: #f5f5f5;
-
-	&::after {
-		border-color: transparent transparent transparent #f5f5f5;
-	}
 }
 
 .timeline-img {
@@ -123,48 +75,6 @@ section {
 	margin-left: -15px;
 }
 
-
-
-.timeline-card {
-	padding: 0!important;
-
-	p {
-		padding: 0 20px;
-	}
-
-	a {
-		margin-left: 20px;
-	}
-}
-
-.timeline-item {
-  .timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('https://picsum.photos/1000/800/?random') center center no-repeat;
-			background-size: cover;
-		}
-}
-
-.timeline-img-header {
-
-	height: 200px;
-	position: relative;
-	margin-bottom: 20px;
-
-	h2 {
-		color: $text;
-		position: absolute;
-		bottom: 5px;
-		left: 20px;
-	}
-}
-
-blockquote {
-	margin-top: 30px;
-	color: $secondary-text;
-	border-left-color: $primary;
-	padding: 0 20px;
-}
-
 .date {
 	background: $accent;
 	display: inline-block;
@@ -173,6 +83,30 @@ blockquote {
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+.project-content {
+	position: relative;
+	width: 100%;
+	padding: 10px 30px;
+	margin: 10px;
+	border-radius: 4px;
+	box-shadow: 0 20px 25px -15px rgba(32, 129, 72, 0.3);
+
+	.project-link {
+		float: left;
+		margin-right: 10px;
+	}
+
+	.project-link img {
+		width: 70px;
+		height: 70px;
+	}
+	h2 {
+		position: relative;
+		left: 5%;
+		float: left;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -199,39 +133,16 @@ blockquote {
 
 				.timeline-content {
 					float: none;
-
 				}
 			}
+		}
+	}
 
-			&:nth-child(odd) {
-
-				.timeline-content {
-					
-					&::after {
-						content: '';
-						position: absolute;
-						border-style: solid;
-						width: 0;
-						height: 0;
-						top: 30px;
-						left: -15px;
-						border-width: 10px 15px 10px 0;
-					}
-				}
-
-				.timeline-content-dark {
-					&::after {
-						border-color: transparent #252627 transparent transparent;
-					}
-				}
-		
-				.timeline-content-light {
-					&::after {
-						border-color: transparent #f5f5f5 transparent transparent;
-					}
-				}
-
-			}
+	.project-content {
+		.project-link {
+			visibility: hidden;
+			width: 0px;
+			height: 0px;
 		}
 	}
 	

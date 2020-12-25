@@ -170,19 +170,19 @@ disableHugoGeneratorInject = false
     identifier = "about"
     name       = "About"
     url        = "about/"
-    weight = 1
+    weight     = 1
 [[menu.main]]
     identifier = "timeline"
     name       = "Timeline"
     url        = "timeline/"
-    weight = 2
+    weight     = 2
   [[menu.main]]
     identifier = "project"
     name       = "Projects"
     url        = "projects/"
-    weight = 3
+    weight     = 3
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
-    weight = 4
+    weight     = 4

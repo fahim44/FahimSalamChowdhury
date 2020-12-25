@@ -6,6 +6,7 @@ const isDark = theme === "dark";
 var metaThemeColor = document.querySelector("meta[name=theme-color]");
 
 const timelinseItems = document.getElementsByClassName("timeline-content")
+const projectItems = document.getElementsByClassName("project-content")
 
 if (theme !== null) {
   document.body.classList.toggle("dark-theme", isDark);
@@ -13,12 +14,13 @@ if (theme !== null) {
     ? metaThemeColor.setAttribute("content", "#252627")
     : metaThemeColor.setAttribute("content", "#fafafa");
 
-  updateTimelineClass(isDark);
-} else if (timelinseItems) {
-  for (let ind = 0; ind < timelinseItems.length; ind++) {
-    const item = timelinseItems[ind];
-    item.classList.remove("timeline-content-dark");
-    item.classList.add("timeline-content-light");
+  updateContentTheme(isDark);
+} else {
+  if (timelinseItems) {
+    initContentTheme(timelinseItems);
+  }
+  if (projectItems) {
+    initContentTheme(projectItems);
   }
 }
 
@@ -33,20 +35,33 @@ themeToggle.addEventListener("click", () => {
     ? metaThemeColor.setAttribute("content", "#252627")
     : metaThemeColor.setAttribute("content", "#fafafa");
 
-  updateTimelineClass(document.body.classList.contains("dark-theme"));
+  updateContentClass(document.body.classList.contains("dark-theme"));
 });
 
 
-function updateTimelineClass(darkBG) {
-  if(timelinseItems) {
-    let goingToRemoveClass = "timeline-content-dark";
-    let goingToAddClass =  "timeline-content-light";
+function updateContentClass(darkBG) {
+  updateContentTheme(timelinseItems, darkBG);
+  updateContentTheme(projectItems, darkBG);
+}
+
+function initContentTheme(contents) {
+  for (let ind = 0; ind < contents.length; ind++) {
+    const item = contents[ind];
+    item.classList.remove("content-dark");
+    item.classList.add("content-light");
+  }
+}
+
+function updateContentTheme(contents, darkBG) {
+  if(contents) {
+    let goingToRemoveClass = "content-dark";
+    let goingToAddClass =  "content-light";
     if (darkBG) {
-      goingToRemoveClass = "timeline-content-light";
-      goingToAddClass = "timeline-content-dark";
+      goingToRemoveClass = "content-light";
+      goingToAddClass = "content-dark";
     }
-    for (let ind = 0; ind < timelinseItems.length; ind++) {
-      const item = timelinseItems[ind];
+    for (let ind = 0; ind < contents.length; ind++) {
+      const item = contents[ind];
       item.classList.remove(goingToRemoveClass);
       item.classList.add(goingToAddClass);
     }
