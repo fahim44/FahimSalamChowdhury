@@ -22,22 +22,7 @@
         <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
       </h1>
 
-      {{- if .Params.toc }}
-        <hr />
-        <aside id="toc">
-          <div class="toc-title">{{ i18n "tableOfContents" }}</div>
-          {{ .TableOfContents }}
-        </aside>
-        <hr />
-      {{- end }}
-
-      {{ with .Params.Cover }}
-        <img src="/{{ . }}" class="post-cover" />
-      {{ end }}
-
-      <div class="post-content">
-        {{ .Content }}
-      </div>
+      
     </article>
 
     <hr />
@@ -64,11 +49,7 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        {{ if .Site.Params.dateformNumTime }}
-          {{ dateFormat .Site.Params.dateformNumTime .Date.Local }}
-        {{ else }}
-          {{ dateFormat "2006-01-02 15:04" .Date.Local }}
-        {{ end }}
+        {{ dateFormat "2006-01-02" .Date.Local }}
 
         {{ if .Lastmod }} 
           {{ if not (eq .Lastmod .Date )}}
@@ -101,6 +82,23 @@
         {{ partial "sharing-buttons.html" . }}
       </div>
     {{- end }}
+
+    {{- if .Params.toc }}
+      <hr />
+      <aside id="toc">
+        <div class="toc-title">{{ i18n "tableOfContents" }}</div>
+        {{ .TableOfContents }}
+      </aside>
+      <hr />
+    {{- end }}
+
+    {{ with .Params.Cover }}
+      <img src="/{{ . }}" class="post-cover" />
+    {{ end }}
+
+    <div class="post-content">
+      {{ .Content }}
+    </div>
 
     {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
       <div class="pagination">
