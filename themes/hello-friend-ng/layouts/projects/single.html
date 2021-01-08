@@ -4,11 +4,16 @@
     <div class="post-info">
       <p>
         <a href="{{.Params.projectLink}}">
-            <img src="{{.Params.projectIcon}}" style="width: 70px; height: 70px;
-            margin-bottom: 10px;"/>
+          {{- if .Params.projectIcon -}}
+            <img src="{{.Params.projectIcon}}" style="width: 70px; height: 70px; margin-bottom: 10px;"/>
+          {{- else -}}
+              {{ partial "libicon.html" }}
+          {{- end -}}
         </a>
         <a href="{{.Params.projectLink}}" style="width:100%;">{{.Title}}</a>
 
+        <p style="font-size: larger; font-weight: bolder;">{{ upper .Params.projectType }}</p>
+      
         {{ if .IsTranslated }} | {{ i18n "postAvailable" }}
           {{ range .Translations }}
               <a href="{{ .Permalink }}"><span class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a>

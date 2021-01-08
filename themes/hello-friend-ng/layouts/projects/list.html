@@ -8,15 +8,23 @@
             <div class="content">{{ .Content }}</div>
         {{ end }}
 
-        <div class="container" style="text-align: left!important">
-            {{ range .Pages.ByWeight.Reverse  }} 
-                <div class="project-content js--fadeInLeft">
-                    <a class="project-link" href="{{.Params.projectLink}}">
-                        <img src="{{.Params.projectIcon}}"/>
-                    </a>
-                    <h2><a href="{{.Permalink}}"><span class="post-title">{{.Title}}</span></a></h2>
-                </div>
-            {{ end }}   
-        </div>
+        {{ range .Data.Pages.GroupByParam "projectType" }}
+            <p style="font-size: larger; font-weight: bold;">{{ upper .Key }}</p>
+            <div class="container" style="text-align: left!important">
+                {{ range .Pages.ByWeight.Reverse  }} 
+                    <div class="project-content js--fadeInLeft">
+                        <a class="project-link" href="{{.Params.projectLink}}">
+                            {{- if .Params.projectIcon -}}
+                                <img src="{{.Params.projectIcon}}"/>
+                            {{- else -}}
+                                {{ partial "libicon.html" }}
+                            {{- end -}}
+                        </a>
+                        <h2><a href="{{.Permalink}}"><span class="post-title">{{.Title}}</span></a></h2>
+                    </div>
+                {{ end }}   
+            </div>
+        {{ end }}
+
     </main>
 {{ end }}
