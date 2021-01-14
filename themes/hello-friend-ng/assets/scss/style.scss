@@ -109,6 +109,18 @@ section {
 	}
 }
 
+.tag-list {
+	position: absolute;
+  	right: 5px;
+  	width: 300px;
+}
+
+@media screen and (max-width: 1350px) {
+	.tag-list {
+		visibility: hidden;
+	}
+}
+
 @media screen and (max-width: 768px) {
 
 	.timeline {
@@ -145,5 +157,8 @@ section {
 			height: 0px;
 		}
 	}
-	
+
+	.tag-list {
+		visibility: hidden;
+	}
 }

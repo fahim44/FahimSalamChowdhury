@@ -48,10 +48,10 @@ disableHugoGeneratorInject = false
   series   = "series"
 
 [params]
-  dateform        = "Jan 1, 2020"
-  dateformShort   = "Jan 1"
-  dateformNum     = "2020-01-01"
-  dateformNumTime = "2020-01-01 00:00"
+  dateform        = "Jan 2, 2016"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2016-Jan-02"
+  dateformNumTime = "2016-Jan-02 04:05"
 
   # Metadata mostly used in document's head
   # 
