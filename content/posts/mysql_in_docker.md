@@ -11,6 +11,8 @@ tags:
 
 In this post, we will discuss how to setup & run *mysql* using *docker*
 
+{{< image src="/img/whale.webp" alt="Whale" position="center" style="border-radius: 8px;" >}}
+
 ## Goal
 We want to setup *mysql* using *docker*, but also want to provide our custom configurations for mysql and save mysql data into our machine. 
 The reason of choosing docker over direct mysql installation into the machine is, we want to switch between mysql hosting machines with ease & start-stop mysql into our macine easily.

@@ -149,6 +149,10 @@ disableHugoGeneratorInject = false
     url  = "https://www.goodreads.com/user/show/78723603-fahim-salam-chowdhury"
 
   [[params.social]]
+    name = "mastodon"
+    url  = "https://mastodon.social/@lamonjush"
+
+  [[params.social]]
     name = "twitter"
     url  = "https://twitter.com/FahimSalam44"
 
