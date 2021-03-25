@@ -20,7 +20,7 @@ The reason of choosing docker over direct mysql installation into the machine is
 ## Prerequisite
 [Docker](https://www.docker.com/) & [Docker-compose](https://docs.docker.com/compose/) should already be setup into your machine beforehand.
 
-## config & data directory
+## Config & data directory
 First create two empty directories into your machine, anywhere you want with any name.
 One for *mysql-config*, to store mysql configuration file.
 Another for *mysql-data*, to persist database's data.
@@ -120,7 +120,7 @@ networks:
 
 services:
   my_mysql:
-    container_name: my_mysql
+    container_name: %container_name%
     image: mysql:latest
     environment:
       MYSQL_DATABASE: %db_name%
@@ -140,7 +140,7 @@ services:
 ```
 Don't forget to replace the db name, password, root-password, mysql-data & mysql-config directory path in the compose file.
 
-## start-stop mysql via docker
+## Start-stop mysql via docker
 Start docker program into your machine. Then, open your *terminal* & `cd` into compose file location.
 
 To start the service, execute:
@@ -153,4 +153,10 @@ To stop the service, stop the service by pressing `cntrl` + `c`.
 Then to remove the service from the stack, execute:
 ```bash
 docker-compose -f mysql_compose.yaml down
+```
+
+## Access mysql cli
+To access the started mysql's cli, you can execute the following command:
+```bash
+docker exec -it %container_name% mysql --user root --password=%db_root_password%
 ```
