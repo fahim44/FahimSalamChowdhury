@@ -81,8 +81,19 @@ So, it is better not to send payload in the GET request.
 ### POST
 
 ### PUT
+`PUT` is used to **create new if not already present, else update the existing** a specific resource.
+`PUT` is used to update the *whole entity*.
+The main difference between it & [post](#post) is, `PUT` is [idempotent](#idempotent), but POST is not.
+
+`PUT` has request body but no successful response body.
+It is not [safe](#safe) & [cacheable](#cacheable), & not allowed in the *HTML forms*.
 
 ### DELETE
+Http method `DELETE` is used to **delete/remove** a specific resource.
+
+`DELETE` may have request body and successful response body.
+It is [idempotent](#idempotent), but not [safe](#safe) & [cacheable](#cacheable).
+`DELETE` is not allowed in the *HTML forms*.
 
 ### PATCH
 
@@ -146,6 +157,8 @@ Http method `OPTIONS` provides response of what communcation options are permitt
 `OPTIONS` can be used to identify what **other Http methods** are allowed for the specific resource.
 It is also used as [preflightd request](#preflighted-requests-in-cors) by mordern browser to support **CORS**.
 Client can specify a url or use `*` for whole server to get list of allowed options with `OPTIONS` method.
+
+Popular server (for example: Tomcat) normally configure `OPTIONS` methods for whole server & specific urls autometically.
 
 `OPTIONS`  has no request body, but has successful response body.
 It is [safe](#safe) & [idempotent](#idempotent), but not [cacheable](#cacheable).
