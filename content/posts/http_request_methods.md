@@ -1,7 +1,7 @@
 ---
 title: "Http request methods"
-date: 2021-01-25T22:56:59+06:00
-draft: true
+date: 2021-03-26T22:56:59+06:00
+draft: false
 toc: true
 images:
 tags:
@@ -79,6 +79,17 @@ Althouth there is no prohibition from the specification, Some existing implement
 So, it is better not to send payload in the GET request.
 
 ### POST
+Using `POST` method, we can pass *entity* of a specific resource to server, which can change some state of the server.
+Mainly `POST` is used to **create** a new entity.
+The `Content-Type` request header indicates the request body type in POST http method.
+
+`POST` has request body & successful response body.
+It is not [safe](#safe) & [idempotent](#idempotent).
+It can be [cacheable](#cacheable) only if freshness information is included.
+It is allowed in the *HTML forms*.
+
+Other than [GET](#get), `POST` is one of the most popular Http method.
+For example, **GraphQL** uses `POST` to pass data between client & server.
 
 ### PUT
 `PUT` is used to **create new if not already present, else update the existing** a specific resource.
@@ -96,6 +107,13 @@ It is [idempotent](#idempotent), but not [safe](#safe) & [cacheable](#cacheable)
 `DELETE` is not allowed in the *HTML forms*.
 
 ### PATCH
+`PATCH` is used to *partially modify* a specific resource.
+It is used to update any entities one/more fields.
+The main differece between [PUT](#put) & `PATCH` is that, in `PATCH` one or more fields of any entity get updated, BUT in `PUT` the whole entity gets replaced.
+
+`PATCH` has request body & successful response body.
+It is not [safe](#safe), [idempotent](#idempotent) & [cacheable](#cacheable).
+It is not allowed in the *HTML forms*.
 
 ### HEAD
 Same as [`GET`](#get), `HEAD` http method requests to **read** specific resource.
@@ -215,3 +233,12 @@ The final recipient is either the **origin server** or the first server to recei
 For this method, *request* & *response* have no body.
 `TRACE` is [safe](#safe) & [idempotent](#idempotent), but not [cacheable](#cacheable).
 `TRACE` is not allowed in the *HTML forms*.
+
+## Conclusion
+Although Http provides these all kind of methods to be used for all type of tasks, it is up to us developers to use them in our projects.
+We can use `GET` request to **delete** entity from our database, no one will stop us.
+But we have to understand, by doing so, our data becomes more vulnerable.
+
+Again, our web browsers use these various methods like `OPTIONS` all the time to ensure security.
+
+Whatever we use all these methods or not, it is always good to know these methods.
