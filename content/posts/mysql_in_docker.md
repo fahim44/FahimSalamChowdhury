@@ -5,7 +5,7 @@ draft: false
 toc: true
 images:
 tags:
-  - mysql
+  - database
   - docker
 ---
 
