@@ -1,7 +1,7 @@
 ---
 title: "A.C.I.D.ity in database"
-date: 2021-04-26T00:04:34+06:00
-draft: true
+date: 2021-05-02T00:04:34+06:00
+draft: false
 toc: true
 images:
 tags:
@@ -26,8 +26,38 @@ Let's discuss them one-by-one.
 {{< image src="/img/lemon_slice.webp" alt="acid" position="center" style="border-radius: 8px;" >}}
 
 ### Atomicity
-In one sentence, Atomicity means *"all or nothing"*.
-It describes, a transaction succeeds if and only if it's all database statements succeed.
-If any of the statements failed, the remaining statements will not be execute & the already executed update statements (CREATE, UPDATE, DELETE operations) will be roll-backed & re-state previous state.
+In one sentence, Atomicity means *all or nothing*.
+It describes, a transaction succeeds if and only if it's all database statements are successfully executed.
+If any of the statements failed, the remaining statements will not be execute & the already executed update statements (CREATE, UPDATE, DELETE operations) will be rolled-back & re-state previous state.
 There is no *partial failure* in transaction.
 For this property, a transaction is treated as *single unit*.
+
+### Consistency
+Consistency means data can only move from *one valid state to another valid state*.
+For example, there are customer & order tables in a relational database.
+Customer & Order have one-to-many relationship between them.
+Meanning, a customer can have one-or-many orders, & every order has a `customer_id` field which is linked with specific customer's `id`.
+Now, if we delete a customer, then this customer's order rows' `customer_id` will reference to wrong customer `id`.
+So, the data will become inconsistence.
+As here customer cannot move to *delete state* without clearing it's dependencies.
+So we have to delete all orders of this customer; or update the customer_id references to another valid customer before deleting the customer.
+
+If any transaction's execution violates database's consistency rule, the whole transaction will be rolled-back.
+
+### Isolation
+In database, transactions are executed in isolated space.
+Isolation ensures that concurrently executed transactions leave the database in the same state as if they were executed sequentially.
+Now if multiple concurrently running transactions try to mutate same data at same time, one transaction will continue while another transaction must wait until the first transaction completes.
+
+### Durability
+Durability means once a transaction is commited, the changes will be saved no matter what happened.
+The future transactions can update the changes, but until then the database will always return the last updated value.
+This behavior should not changed even in a situation of system failure.
+To achieve this commited trasactions should be saved into *non-volatile memory*.
+
+## Conclusion
+Although *ACID* is vital requirement for databases, not all databases are succeed to achieve this.
+That because, to achieve ACID compliance a databse most likely need to sacrifice other important requirements, like, speed, easy scalability etc.
+To support main their focus, some databases don't give much focus on some ACID features.
+Normally, relational databases (mysql, oracle etc) are ACID compliant.
+On the other hand, most of the NoSQL databases (mongoDB, redis etc) lack some ACID features because they mainly focus on high speed & high availability.
