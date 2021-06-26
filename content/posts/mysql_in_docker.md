@@ -4,9 +4,11 @@ date: 2021-01-14T21:55:03+06:00
 draft: false
 toc: true
 images:
+  - "/img/whale.webp"
 tags:
   - database
   - docker
+  - mysql
 ---
 
 In this post, we will discuss how to setup & run *mysql* using *docker*

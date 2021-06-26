@@ -4,6 +4,7 @@ date: 2021-05-02T00:04:34+06:00
 draft: false
 toc: true
 images:
+  - "/img/lemon_slice.webp"
 tags:
   - database
 ---
