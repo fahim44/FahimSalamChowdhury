@@ -14,9 +14,11 @@ Because of reffering actions, thses methods are sometimes reffered as *HTTP verb
 {{< image src="/img/sign_up_today.webp" alt="Request Header" position="center" style="border-radius: 8px;" >}}
 
 ## Features of HTTP Methods
+
 Although they are semantically difference, HTTP Methods share some common features/quality among them.
 
 ### Safe
+
 An Http method is called *safe*, if it doesn't change any server state.
 Meaning, if the Http method's main operation is *read-only*, then the method is *safe*.
 For example, `GET`, `HEAD`, `OPTIONS` are some safe http methods.
@@ -33,6 +35,7 @@ One last note... **All safe methods are idempotent, but not all idempotent metho
 For example, `PUT` and `DELETE` are both idempotent but unsafe.
 
 ### Idempotent
+
 A Http method is called *idempotent*, when identical multiple reuquests with same effect leave the server into same state.
 Meaning if you make same request multiple time, server will always be change to same state.
 
@@ -44,10 +47,11 @@ In sort, idempotent methods have no side effect. Servers can save analytic data 
 
 Last but not least, this feature actually depends on deveoper.
 Suppose, you develop an api `DELETE /user/{id}`, then we can say it is idempotent, because for first successful delete it will return `2xx` response, the later requests will always return `4xx` status, because the requests will not affect the server state anymore.
-But if we develop an api `DELETE /user/lastEntry`, then it is not idempotent. 
+But if we develop an api `DELETE /user/lastEntry`, then it is not idempotent.
 Because every request to this api, will delete last current row every time, thus changing the server state every time.
 
 ### Cacheable
+
 Client for example browser can cache some http responses.
 Not all http responses can be cached.
 There are some constrains which should be passed to be able to cache http responses.
@@ -65,10 +69,12 @@ These status codes are `200`, `203`, `204`, `206`, `300`, `301`, `404`, `405`, `
 Note that some non-cacheable requests/responses to a specific URI may invalidate previously cached responses on the same URI.
 
 ## HTTP Methods
+
 There are 9 types of Http methods.
 Of them, 4 are most known (`GET`, `POST`, `PUT`, `DELETE`) & 2 are mostly used (`GET`, `POST`) methods.
 
 ### GET
+
 The `GET` methods requests to **read** any specified resource.
 GET should only be used to retrieve data.
 Data is passed to the caller as the response body.
@@ -79,6 +85,7 @@ Althouth there is no prohibition from the specification, Some existing implement
 So, it is better not to send payload in the GET request.
 
 ### POST
+
 Using `POST` method, we can pass *entity* of a specific resource to server, which can change some state of the server.
 Mainly `POST` is used to **create** a new entity.
 The `Content-Type` request header indicates the request body type in POST http method.
@@ -92,6 +99,7 @@ Other than [GET](#get), `POST` is one of the most popular Http method.
 For example, **GraphQL** uses `POST` to pass data between client & server.
 
 ### PUT
+
 `PUT` is used to **create new if not already present, else update the existing** a specific resource.
 `PUT` is used to update the *whole entity*.
 The main difference between it & [post](#post) is, `PUT` is [idempotent](#idempotent), but POST is not.
@@ -100,6 +108,7 @@ The main difference between it & [post](#post) is, `PUT` is [idempotent](#idempo
 It is not [safe](#safe) & [cacheable](#cacheable), & not allowed in the *HTML forms*.
 
 ### DELETE
+
 Http method `DELETE` is used to **delete/remove** a specific resource.
 
 `DELETE` may have request body and successful response body.
@@ -107,6 +116,7 @@ It is [idempotent](#idempotent), but not [safe](#safe) & [cacheable](#cacheable)
 `DELETE` is not allowed in the *HTML forms*.
 
 ### PATCH
+
 `PATCH` is used to *partially modify* a specific resource.
 It is used to update any entities one/more fields.
 The main differece between [PUT](#put) & `PATCH` is that, in `PATCH` one or more fields of any entity get updated, BUT in `PUT` the whole entity gets replaced.
@@ -116,8 +126,9 @@ It is not [safe](#safe), [idempotent](#idempotent) & [cacheable](#cacheable).
 It is not allowed in the *HTML forms*.
 
 ### HEAD
+
 Same as [`GET`](#get), `HEAD` http method requests to **read** specific resource.
-The differece between these two is `GET` is interested in actual data, where `HEAD` is interested on *status of the data*. 
+The differece between these two is `GET` is interested in actual data, where `HEAD` is interested on *status of the data*.
 Again, HEAD is faster than GET request.
 
 HEAD method requests for [HTTP HEADERS](#http-headers).
@@ -125,22 +136,24 @@ HEAD method doesn't support data passing via request/response body.
 HEAD is [safe](#safe), [idempotent](#idempotent), [cacheable](#cacheable).
 HEAD is not allowed in the *HTML forms*.
 
-For example, an url makes a request for large download. 
+For example, an url makes a request for large download.
 Instead of actually downloading the data, HEAD request could read its `Content-Length` header to check the filesize without actually downloading the file.
 
-Another example is hashing. 
-Suppose a browser is caching data. 
+Another example is hashing.
+Suppose a browser is caching data.
 Before making any GET request to a particular url to retrieve the actual data everytime, we can make HEAD request to check the hash code if the data is changed or not.
 If not changed, we can show the data from the cache.
 Or if changed, we can make the GET request to retrieve the actual data.
 
 - #### HTTP HEADERS
+
 `HEADERS` let the client & server pass additional informatiion with an HTTP request or response.
 A header passes data in *key-value* pair syntax, having `:` between them as separator.
 A header dosen't hold actual data, but information of the data.
 There are various types of headers, for example, *General headers*, *Request headers*, *Response headers*, *Entity headers*.
 
 ### CONNECT
+
 Http method `CONNECT` is used open a *tunnel* between client and server identified by the target resource.
 It starts a *two-way communication* between client & server.
 `CONNECT` method can be used to access websites that use *SSL* or *HTTPS*.
@@ -156,21 +169,26 @@ It is not [safe](#safe), [idempotent](#idempotent), [cacheable](#cacheable).
 `CONNECT` is not allowed in the *HTML forms*.
 
 - #### Proxy-Authorization
+
 `Http Proxy-Authorization request header` contains the credential to authenticate a client to proxy server. It is required to pass with the request if server responded before with `407` `Proxy Authentication Required` status code with `Proxy-Authonticate` response header.
 
 `Proxy-Authorization` syntax is:
+
 ```html
 Proxy-Authorization: <type> <credentials>
 ```
+
 Here, `<type>` will be replaced with `Authentication type`.
 The most common type is `Basic`.
 
 the `<credentials>` will be replaced with client's credential.
 The credential is generated by following steps:
+
 - The username and the password are combined with a colon (`:`) (example: `username:password`)
 - Encode the resulting string into **Base64**.
 
 ### OPTIONS
+
 Http method `OPTIONS` provides response of what communcation options are permitted for targeted resource.
 `OPTIONS` can be used to identify what **other Http methods** are allowed for the specific resource.
 It is also used as [preflightd request](#preflighted-requests-in-cors) by mordern browser to support **CORS**.
@@ -183,6 +201,7 @@ It is [safe](#safe) & [idempotent](#idempotent), but not [cacheable](#cacheable)
 `OPTIONS` is not allowed in the *HTML forms*.
 
 - #### Preflighted requests in CORS
+
 In mordern browsers, when from inside of any domain (for example, `a.com`), we try to call another domain's (`b.com`) any resource (`GET b.com/users` using *ajax* call), browsers don't call the method right-away.
 Instead it calls `OPTIONS b.com/users` first, to check if `a.com` is eligible to call `GET b.com`.
 If `b.com` grants `a.com` to call the `GET b.com/users`, then browser will make the request.
@@ -190,14 +209,16 @@ This pre-check request is called **Preflighted request** and it is designed supp
 
 Browser check some specific response header of the OPTIONS response to check CORS.
 These headers are:
-- `Access-Control-Allow-Origin` what *domains* other than itself is allowed to retrieve this specific resource. 
+
+- `Access-Control-Allow-Origin` what *domains* other than itself is allowed to retrieve this specific resource.
 Using `*` can open for all domains. Using `*` is not recomended due to security reason.
-- `Access-Control-Allow-Methods` what *http methods* are allowed to be called. 
+- `Access-Control-Allow-Methods` what *http methods* are allowed to be called.
 It is same as `Allowed` header, but it is used for CORS.
 - `Access-Control-Allow-Headers` what *response headers* are allowed to be read.
 - `Access-Control-Max-Age` what is the max time these allowed permissions can be cached.
 
 For example, browser makes the following Preflighted request:
+
 ```html
 OPTIONS /users HTTP/1.1
 Host: b.com
@@ -209,7 +230,9 @@ Origin: https://a.com
 Access-Control-Request-Method: GET
 Access-Control-Request-Headers: X-PINGOTHER, Content-Type
 ```
+
 and the response is the following:
+
 ```html
 HTTP/1.1 204 No Content
 Date: Mon, 01 Jan 2021 01:15:39 GMT
@@ -224,6 +247,7 @@ Connection: Keep-Alive
 ```
 
 ### TRACE
+
 Http method `TRACE` is used perform message loop-back test.
 It is mainly used for debugging purpose.
 The *loop-back test* means the caller will receive back what it has send to the server in request as response with some additional info.
@@ -235,6 +259,7 @@ For this method, *request* & *response* have no body.
 `TRACE` is not allowed in the *HTML forms*.
 
 ## Conclusion
+
 Although Http provides these all kind of methods to be used for all type of tasks, it is up to us developers to use them in our projects.
 We can use `GET` request to **delete** entity from our database, no one will stop us.
 But we have to understand, by doing so, our data becomes more vulnerable.
