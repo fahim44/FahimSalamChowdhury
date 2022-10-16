@@ -66,7 +66,7 @@ What is the benifit to use optional instead?
 The reason is my friend to forcefully remind us the issue.
 The `if (object != null)` checking solution is all perfect; no doubt about it.
 But that solution is valid when we are not forgetful.
-Suppose we have two blocks of code where the can-be-null object is used, but forget to check null in one of the blogs instead; then the null safety is garanteed again.
+Suppose we have two blocks of code where the can-be-null object is used, but forget to check null in one of the blogs instead; then the null safety is guaranteed again.
 ```java
 String name = null;
 if(name != null) {
