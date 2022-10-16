@@ -9,11 +9,11 @@ tags:
   - basic
 ---
 
-A ***Computer Program*** is a sequence of instructions in a *programing language* which can a computer system can execute or interpret.
+A ***Computer Program*** is a sequence of instructions written in a *programing language* which can be executed or interpreted in a computer system.
 
-When we engineer/programmer/developer write any program in any programing language of our choice, we actually write in very human-readable language.
+When we engineers/programmers/developers write any program in any programing language of our choice, we actually write in very human-readable language.
 This is called source code.
-We can understand whan source code is saying; but the computer only knows binary, & it can only execute programs which is in machine instructions.
+We can understand what source code is describing; but the computer only knows binary, & it can only execute programs which is written in machine instructions.
 
 ## Instruction Set Architecture (ISA)
 
@@ -21,11 +21,11 @@ Suppose we have loaded two integer values into `a` & `b` addresses of computer m
 Now you want to add their values & save the result into `c` memory address.
 Only the central processing unit AKA ***CPU*** has the power to do the adding by using the arithmetic logic unit AKA ***ALU***.
 But how do you let cpu know to do the operation?
-On over the top, if you have intel cpu in one machine & amd cpu on another; they can execute same operation differently according to their architecture.
+On the top of it, if you have intel cpu in one machine & amd cpu on another; they can execute same operation differently according to their architecture.
 
 Here the intruction set architecture (ISA) comes to rescue. ISA provides an abstruction layer which cpu can read, decode, understand the command & execute it.
 ISA defines ***Instructions***, which are *binary string* with a pre-define structure.
-Every instruction has *opcode* (Operation code) on its begining, by reading this cpu can understand what operation it should perform.
+Every instruction has *opcode* (Operation code) at its begining, by reading this cpu can understand what operation it should perform.
 After the opcode follow supporting data/memory address which cpu may need to complete the operation (It is also pre-defined for specific opcode).
 
 For example, lets say for our machine ISA, the specified opcode length is 6; & the addition instruction opcode is `000001`. & for addition instruction, we also need provide *first param's memory address*, *second param's memory address*, *to save the result memory address* in order. Lets assume the address value of `a`, `b` & `c` are `1122`, `3456`, `9976`.
@@ -36,14 +36,14 @@ So the instruction for it will be,
 ```
 
 This instruction is loaded on the memory & process triggered, so that cpu can look at it.
-CPU will read the instruction & understand what we want to do, add `a` & `b`'s value & save the result in `c` address.
+CPU will read the instruction & understand what we want to do, add `a` & `b`s' values & save the result in `c` address.
 
 There are various types of ISA.
 A cpu can implement an ISA for its operations.
 A common classification of ISA is by architectural complexity.
 Some well known ISA are, complex instruction set computer AKA ***CISC***, reduced instruction set computer AKA ***RISC***, minimal instruction set computer AKA ***MISC***.
 
-Although machine instructions are only way to execute the computer program, it is near impossible for us humen to always write the program in all binary intructions.
+Although machine instructions are only way to execute the computer program, it is near to impossible for us humen to write complex programs in all binary intructions.
 To make it more convenient for us, the progamming language comes in.
 Programming languages add more abstraction layers over the ISA to make the process more easier.
 There are mainly two types of programming languages, low-level, high-level programming languages.
