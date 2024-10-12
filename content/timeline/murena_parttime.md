@@ -1,5 +1,5 @@
 ---
-title: "Software Engineer (Part time)"
+title: "Software Engineer - Android (Part time)"
 date: 2020-12-16T20:52:07+06:00
 draft: false
 linktitle: MURENA SAS
