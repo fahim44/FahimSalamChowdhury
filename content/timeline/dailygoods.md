@@ -26,6 +26,6 @@ Technologies:
 - Microservice architecture
 - Spring boot
 - Vaadin framework
-- socket connectivity
+- WebSocket
 - Java
 - Android
