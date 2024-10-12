@@ -29,5 +29,5 @@ Technologies:
 - PHP
 - Python
 - MongoDB
-- Mysql
+- MariaDB
 - Haproxy
