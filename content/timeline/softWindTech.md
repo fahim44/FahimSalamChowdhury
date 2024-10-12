@@ -20,3 +20,12 @@ In Softwind Tech, I had the position of junior software engineer. Here, I had de
 - Developed application in shortest amount of time
 - Developed applications for android, ios, windows phone
 - Worked with a team of 3 high performing engineers
+
+Technologies:
+
+- Android
+- Windows phone application development
+- Java
+- C#
+- Javascript
+- Git

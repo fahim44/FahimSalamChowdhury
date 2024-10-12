@@ -18,3 +18,8 @@ As Android app developer, my responsibilities were,
 
 - Revamp /e/OS default apps' UI
 - Implement dark-mode for default apps
+
+Technologies:
+
+- Android
+- Gitlab CI-CD

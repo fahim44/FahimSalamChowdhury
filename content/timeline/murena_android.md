@@ -22,3 +22,9 @@ As Android app developer, my responsibilities were,
 - Implement E2EE feature for over [Nextcloud Notes app](https://gitlab.e.foundation/dapsi-e2ee/nextcloud-notes) for [DAPSI Project](https://dapsi.ngi.eu/hall-of-fame/4e-end-to-end-encryption-for-e/).
 - Simplified Mail's openPGP encryption user experience.
 - Implement OpenId-Connect & Single-SingOn support for /e/OS agaisnt various providers (ex: murena, google, yahoo). 
+
+Technologies:
+
+- Android
+- Android Jetpack compose
+- Gitlab CI-CD

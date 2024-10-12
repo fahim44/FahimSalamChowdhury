@@ -21,3 +21,13 @@ As backend software engineer, my responsibilities are,
 - Maintain & implement features for murena.io & it's supported applications.
 - Maintain spot, cleanApk etc applications which improve /e/OS user experience.
 - Contribute back to various murena's upstream projects (ex: [snappyMail](https://github.com/the-djmaze/snappymail/)).
+
+Technologies:
+
+- Gitlab CI-CD
+- Nextcloud
+- PHP
+- Python
+- MongoDB
+- Mysql
+- Haproxy

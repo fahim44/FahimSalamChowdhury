@@ -20,3 +20,17 @@ In Rokomari, I am working as a team member of the software development team. Her
 - Design and develop scale-able & high efficient back-end services (using microservice or monoliphic architechture)
 - Guide other developers on verious architure related topics
 - Plan and fix company's application development lifecycle (code convention, git maintainace etc.)
+
+Technologies:
+
+- Spring framework
+- Spring boot
+- Flutter
+- Mysql
+- MongoDB
+- Monoliphic architure
+- Microservice architure
+- Java
+- Kotlin
+- Dart
+- Gitlab

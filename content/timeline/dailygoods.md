@@ -20,3 +20,12 @@ In DailyGoods Ltd., I served as software engineer - team lead. I have lead the t
 - Develop various libraries to support various applications
 - Distribute tasks among the team
 - Design scale-able architecture of various projects
+
+Technologies:
+
+- Microservice architecture
+- Spring boot
+- Vaadin framework
+- socket connectivity
+- Java
+- Android

@@ -22,3 +22,9 @@ In Frenclub Mobile Ltd., I have worked as Software Engineer. I have developed an
 - Implemented in-app purchase system
 - Gained performance boost by 3x
 - Developed applications used by thousands
+
+Technologies:
+
+- Android
+- Java
+- Git
